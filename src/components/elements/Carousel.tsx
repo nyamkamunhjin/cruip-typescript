@@ -5,7 +5,7 @@ const swipeThreshold = 40;
 
 interface Props {
   className: string;
-  children: any[];
+  children?: React.ReactNode;
   active: number;
   autorotate: boolean;
   autorotateTiming: number;
@@ -60,16 +60,16 @@ const Carousel: React.FC<Props> = ({
 
   const goToNext = (stop = false) => {
     // let nextItem: number;
-    if (children) {
-      let nextItem = activeItem + 1 >= children.length ? 0 : activeItem + 1;
+    if (children && Array.isArray(children)) {
+      let nextItem = activeItem + 1 >= children?.length ? 0 : activeItem + 1;
       // console.log('gotoNext', { stop: stop, nextItem });
       goTo(nextItem, stop);
     }
   };
 
   const goToPrev = (stop = false) => {
-    if (children) {
-      let prevItem = activeItem - 1 < 0 ? children.length - 1 : activeItem - 1;
+    if (children && Array.isArray(children)) {
+      let prevItem = activeItem - 1 < 0 ? children?.length - 1 : activeItem - 1;
       goTo(prevItem, stop);
     }
   };
@@ -128,13 +128,15 @@ const Carousel: React.FC<Props> = ({
         onTouchEnd={handleTouchEnd}
       >
         {Children.map(children, (child, n) => {
-          return React.cloneElement(child, {
-            key: n,
-            className: classNames(
-              child.props.className,
-              activeItem === n && 'is-active'
-            ),
-          });
+          if (child) {
+            return React.cloneElement(child as React.ReactElement<any>, {
+              key: n,
+              className: classNames(
+                child.props.className,
+                activeItem === n && 'is-active'
+              ),
+            });
+          }
         })}
       </div>
       <div className="carousel-bullets">

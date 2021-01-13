@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 interface Props {
-  className: string;
-  children: React.ReactNode;
-  active: boolean;
+  className?: string;
+  children?: React.ReactNode;
+  active?: boolean;
   title: string;
+  // props?: any;
 }
 const AccordionItem: React.FC<Props> = ({
   className,
