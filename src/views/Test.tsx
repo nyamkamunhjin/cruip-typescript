@@ -26,6 +26,8 @@ import HeroFull from '../components/sections/HeroFull';
 import HeroSplit from '../components/sections/HeroSplit';
 import News from '../components/sections/News';
 import Pricing from '../components/sections/Pricing';
+import Roadmap from '../components/sections/Roadmap';
+import Testimonial from '../components/sections/Testimonial';
 
 const Test = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -222,6 +224,8 @@ const Test = () => {
       <HeroSplit invertMobile imageFill className="illustration-section-01" />
       <News />
       <Pricing />
+      <Roadmap />
+      <Testimonial />
     </React.Fragment>
   );
 };
