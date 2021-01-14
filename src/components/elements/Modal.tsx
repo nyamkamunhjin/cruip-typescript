@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import classNames from 'classnames';
 interface Props {
   className?: string;
+  id?: string;
   children?: React.ReactNode;
   handleClose: (event: React.MouseEvent<any>) => void;
   show: boolean;
@@ -21,6 +22,7 @@ interface Props {
 
 const Modal: React.FC<Props> = ({
   className,
+  id,
   handleClose,
   children = null,
   show = false,

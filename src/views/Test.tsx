@@ -13,6 +13,19 @@ import Select from '../components/elements/Select';
 import Switch from '../components/elements/Switch';
 import Timeline from '../components/elements/Timeline';
 import TimelineItem from '../components/elements/TimelineItem';
+import Clients from '../components/sections/Clients';
+
+import TestPic from '../assets/images/clients-01.svg';
+import Cta from '../components/sections/Cta';
+import FeaturesSplit from '../components/sections/FeaturesSplit';
+import FeaturesTiles from '../components/sections/FeaturesTiles';
+import GenericSection from '../components/sections/GenericSection';
+
+import PlaceHolderSvg from './../assets/images/image-placeholder.svg';
+import HeroFull from '../components/sections/HeroFull';
+import HeroSplit from '../components/sections/HeroSplit';
+import News from '../components/sections/News';
+import Pricing from '../components/sections/Pricing';
 
 const Test = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -71,17 +84,12 @@ const Test = () => {
       <Button
         color="primary"
         // className=""
-        onClick={(event) => alert('button clicked')}
+        onClick={(event: any) => alert('button clicked')}
       >
         Primary color
       </Button>
       <Checkbox name="green" />
-      <Image
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg"
-        width={100}
-        height={100}
-        alt="pic"
-      />
+      <Image src={TestPic} width={200} height={200} alt="pic" />
       <Button color="primary" onClick={openModal}>
         Standard modal
       </Button>
@@ -114,6 +122,7 @@ const Test = () => {
         name="lights"
         rightLabel="Billed Annually"
         checked={switchChecked}
+        onChange={(e) => console.log(e.target.checked)}
         onClick={(e) => {
           console.log('switch', !switchChecked);
           setSwitchChecked(!switchChecked);
@@ -151,6 +160,68 @@ const Test = () => {
           setInput(e.target.value);
         }}
       />
+      <Clients topDivider={true} bottomDivider={true} />
+      <Cta />
+      <FeaturesSplit bottomDivider imageFill />
+      <FeaturesTiles />
+      <GenericSection topDivider>
+        <div className="container-xs">
+          <h2 className="mt-0">
+            Lorem ipsum is placeholder text commonly used in the graphic.
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet,{' '}
+            <a href="#0">consectetur adipiscing elit</a>, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+          <figure>
+            <Image
+              className="image-larger"
+              src={PlaceHolderSvg}
+              alt="Placeholder"
+              width={712}
+              height={400}
+            />
+            <figcaption className="text-color-low">
+              A super-nice image{' '}
+              <span role="img" aria-label="smile">
+                😀
+              </span>
+            </figcaption>
+          </figure>
+          <h4>Flexibility</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+          </p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+        </div>
+      </GenericSection>
+      <HeroFull className="illustration-section-02" />
+      <HeroSplit invertMobile imageFill className="illustration-section-01" />
+      <News />
+      <Pricing />
     </React.Fragment>
   );
 };

@@ -8,7 +8,8 @@ interface Props {
   rightLabel?: string;
   disabled?: boolean;
   checked: boolean;
-  onClick: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 // const defaultProps = {
 //   children: null,
@@ -27,6 +28,7 @@ const Switch: React.FC<Props> = ({
   disabled = false,
   checked = false,
   onClick,
+  onChange,
   ...props
 }) => {
   const classes = classNames('form-switch', className);
@@ -40,6 +42,7 @@ const Switch: React.FC<Props> = ({
         value={value}
         disabled={disabled}
         checked={checked}
+        onChange={onChange}
       />
       <span className="form-switch-icon" />
       <span>{children}</span>
