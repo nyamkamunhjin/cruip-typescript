@@ -4,11 +4,11 @@ import classNames from 'classnames';
 const swipeThreshold = 40;
 
 interface Props {
-  className: string;
+  className?: string;
   children?: React.ReactNode;
-  active: number;
-  autorotate: boolean;
-  autorotateTiming: number;
+  active?: number;
+  autorotate?: boolean;
+  autorotateTiming?: number;
 }
 
 const Carousel: React.FC<Props> = ({
@@ -128,7 +128,7 @@ const Carousel: React.FC<Props> = ({
         onTouchEnd={handleTouchEnd}
       >
         {Children.map(children, (child, n) => {
-          if (child) {
+          if (React.isValidElement<{ className: string }>(child)) {
             return React.cloneElement(child as React.ReactElement<any>, {
               key: n,
               className: classNames(

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 interface Props {
-  className: string;
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
+  className?: string;
+  src?: string;
+  width?: number;
+  height?: number;
+  alt?: string;
 }
 
 // type ImageState = {

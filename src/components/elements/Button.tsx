@@ -1,14 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 interface Props {
-  className: string;
-  tag: string;
-  color: string;
-  size: string;
-  loading: boolean;
-  wide: boolean;
-  wideMobile: boolean;
-  disabled: boolean;
+  className?: string;
+  tag?: string;
+  color?: string;
+  size?: string;
+  loading?: boolean;
+  wide?: boolean;
+  wideMobile?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  disabled?: boolean;
 }
 
 const Button: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const Button: React.FC<Props> = ({
   wide = false,
   wideMobile = false,
   disabled = false,
+  onClick,
   ...props
 }) => {
   const classes = classNames(
@@ -33,7 +35,14 @@ const Button: React.FC<Props> = ({
   );
 
   // const Component = tag;
-  return <button {...props} className={classes} disabled={disabled} />;
+  return (
+    <button
+      {...props}
+      className={classes}
+      disabled={disabled}
+      onClick={onClick}
+    />
+  );
 };
 // Button.defaultProps = defaultProps;
 export default Button;

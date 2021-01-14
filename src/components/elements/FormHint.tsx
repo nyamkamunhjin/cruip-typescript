@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 interface Props {
   className?: string;
-  children: React.ReactNode;
-  status: string;
+  children?: React.ReactNode;
+  status?: string;
 }
 
 const FormHint: React.FC<Props> = ({

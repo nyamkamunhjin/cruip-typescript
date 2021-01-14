@@ -5,17 +5,18 @@ import FormHint from './FormHint';
 
 interface Props {
   className?: string;
-  children: React.ReactNode;
-  label: string;
-  labelHidden: boolean;
-  name: string;
-  status: string;
-  disabled: boolean;
-  value: string | number;
-  size: string;
+  children?: React.ReactNode;
+  label?: string;
+  labelHidden?: boolean;
+  name?: string;
+  status?: string;
+  disabled?: boolean;
+  value?: string | number;
+  size?: string;
   id?: any;
-  placeholder: string;
-  hint: string;
+  placeholder?: string;
+  hint?: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Select: React.FC<Props> = ({
@@ -31,6 +32,7 @@ const Select: React.FC<Props> = ({
   id = '',
   placeholder = null,
   hint = null,
+  onChange,
   ...props
 }) => {
   const classes = classNames(
@@ -48,6 +50,7 @@ const Select: React.FC<Props> = ({
       )}
       <select
         {...props}
+        onChange={onChange}
         className={classes}
         name={name}
         disabled={disabled}
